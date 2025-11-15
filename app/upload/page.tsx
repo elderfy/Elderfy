@@ -19,16 +19,16 @@ export default function UploadPage() {
 
   if (submitted) {
     return (
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-green-50 border-2 border-green-500 rounded-2xl p-12 text-center">
-          <div className="text-6xl mb-6">✅</div>
-          <h1 className="text-4xl font-bold text-green-800 mb-4">
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-gradient-to-br from-green-50 to-emerald-100 border-3 border-emerald-400 rounded-3xl p-16 text-center shadow-2xl">
+          <div className="text-8xl mb-8 animate-bounce">✅</div>
+          <h1 className="text-5xl md:text-6xl font-bold text-emerald-800 mb-6">
             Content Submitted Successfully!
           </h1>
-          <p className="text-2xl text-green-700 mb-8">
+          <p className="text-3xl text-emerald-700 mb-12 leading-relaxed">
             Thank you for sharing your wisdom with the community.
           </p>
-          <div className="flex gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button
               variant="primary"
               size="large"
@@ -39,14 +39,14 @@ export default function UploadPage() {
                 setTextContent('');
               }}
             >
-              Share More
+              ✨ Share More Wisdom
             </Button>
             <Button
               variant="outline"
               size="large"
               onClick={() => window.location.href = '/'}
             >
-              Go Home
+              🏠 Go Home
             </Button>
           </div>
         </div>
@@ -55,23 +55,24 @@ export default function UploadPage() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-4xl mx-auto">
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold text-gray-900 mb-4">
+        <div className="text-7xl mb-6">✨</div>
+        <h1 className="text-6xl md:text-7xl font-bold text-sage-900 mb-6">
           Share Your Wisdom
         </h1>
-        <p className="text-2xl text-gray-700">
-          Upload your content and inspire others with your experiences.
+        <p className="text-3xl text-sage-600 leading-relaxed max-w-3xl mx-auto">
+          Upload your content and inspire others with your experiences and knowledge.
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8 md:p-12 space-y-8">
+      <form onSubmit={handleSubmit} className="bg-gradient-to-br from-white to-warmOrange-50 rounded-3xl shadow-2xl p-10 md:p-14 space-y-10 border-2 border-warmOrange-200">
         {/* Content Type Selection */}
         <div>
-          <label className="block text-2xl font-semibold text-gray-900 mb-4">
-            Content Type
+          <label className="block text-3xl font-bold text-sage-900 mb-6">
+            What type of content do you want to share?
           </label>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { type: 'video' as const, icon: '🎥', label: 'Video' },
               { type: 'text' as const, icon: '📝', label: 'Writing' },
@@ -82,14 +83,14 @@ export default function UploadPage() {
                 key={type}
                 type="button"
                 onClick={() => setContentType(type)}
-                className={`p-6 rounded-xl border-2 transition-all ${
+                className={`p-8 rounded-2xl border-3 transition-all duration-300 transform hover:-translate-y-1 shadow-lg ${
                   contentType === type
-                    ? 'border-blue-600 bg-blue-50'
-                    : 'border-gray-300 hover:border-gray-400'
+                    ? 'border-orange-500 bg-gradient-to-br from-orange-100 to-orange-200 shadow-xl scale-105'
+                    : 'border-sage-300 bg-white hover:border-orange-400 hover:shadow-xl'
                 }`}
               >
-                <div className="text-4xl mb-2">{icon}</div>
-                <div className="text-lg font-semibold">{label}</div>
+                <div className="text-6xl mb-3">{icon}</div>
+                <div className="text-2xl font-bold text-sage-900">{label}</div>
               </button>
             ))}
           </div>
@@ -97,15 +98,15 @@ export default function UploadPage() {
 
         {/* Title */}
         <div>
-          <label htmlFor="title" className="block text-2xl font-semibold text-gray-900 mb-4">
-            Title
+          <label htmlFor="title" className="block text-3xl font-bold text-sage-900 mb-6">
+            Give it a title
           </label>
           <input
             id="title"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full px-6 py-4 text-xl border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-8 py-6 text-2xl border-3 border-sage-300 rounded-2xl focus:outline-none focus:ring-4 focus:ring-orange-400 focus:border-orange-500 shadow-lg"
             placeholder="Give your content a memorable title"
             required
           />
@@ -113,15 +114,15 @@ export default function UploadPage() {
 
         {/* Description */}
         <div>
-          <label htmlFor="description" className="block text-2xl font-semibold text-gray-900 mb-4">
-            Description
+          <label htmlFor="description" className="block text-3xl font-bold text-sage-900 mb-6">
+            Describe your content
           </label>
           <textarea
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            rows={3}
-            className="w-full px-6 py-4 text-xl border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500 focus:border-blue-500"
+            rows={4}
+            className="w-full px-8 py-6 text-2xl border-3 border-sage-300 rounded-2xl focus:outline-none focus:ring-4 focus:ring-orange-400 focus:border-orange-500 shadow-lg leading-relaxed"
             placeholder="Briefly describe what your content is about"
             required
           />
@@ -130,15 +131,15 @@ export default function UploadPage() {
         {/* Content Upload/Input */}
         {contentType === 'text' && (
           <div>
-            <label htmlFor="content" className="block text-2xl font-semibold text-gray-900 mb-4">
+            <label htmlFor="content" className="block text-3xl font-bold text-sage-900 mb-6">
               Your Writing
             </label>
             <textarea
               id="content"
               value={textContent}
               onChange={(e) => setTextContent(e.target.value)}
-              rows={12}
-              className="w-full px-6 py-4 text-xl border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500 focus:border-blue-500 font-mono"
+              rows={14}
+              className="w-full px-8 py-6 text-2xl border-3 border-sage-300 rounded-2xl focus:outline-none focus:ring-4 focus:ring-orange-400 focus:border-orange-500 shadow-lg leading-relaxed"
               placeholder="Share your thoughts, stories, or knowledge..."
               required
             />
@@ -147,16 +148,16 @@ export default function UploadPage() {
 
         {contentType === 'video' && (
           <div>
-            <label htmlFor="video" className="block text-2xl font-semibold text-gray-900 mb-4">
+            <label htmlFor="video" className="block text-3xl font-bold text-sage-900 mb-6">
               Video URL or Upload
             </label>
             <input
               id="video"
               type="text"
-              className="w-full px-6 py-4 text-xl border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Paste YouTube or Vimeo URL, or click to upload"
+              className="w-full px-8 py-6 text-2xl border-3 border-sage-300 rounded-2xl focus:outline-none focus:ring-4 focus:ring-orange-400 focus:border-orange-500 shadow-lg"
+              placeholder="Paste YouTube or Vimeo URL"
             />
-            <p className="mt-3 text-lg text-gray-600">
+            <p className="mt-4 text-xl text-sage-600">
               You can paste a video URL or upload a video file (in a full implementation)
             </p>
           </div>
@@ -164,16 +165,16 @@ export default function UploadPage() {
 
         {contentType === 'music' && (
           <div>
-            <label htmlFor="music" className="block text-2xl font-semibold text-gray-900 mb-4">
+            <label htmlFor="music" className="block text-3xl font-bold text-sage-900 mb-6">
               Music File or URL
             </label>
             <input
               id="music"
               type="text"
-              className="w-full px-6 py-4 text-xl border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-8 py-6 text-2xl border-3 border-sage-300 rounded-2xl focus:outline-none focus:ring-4 focus:ring-orange-400 focus:border-orange-500 shadow-lg"
               placeholder="Paste SoundCloud URL or click to upload audio"
             />
-            <p className="mt-3 text-lg text-gray-600">
+            <p className="mt-4 text-xl text-sage-600">
               Upload MP3, WAV, or paste a SoundCloud URL
             </p>
           </div>
@@ -181,26 +182,27 @@ export default function UploadPage() {
 
         {contentType === 'art' && (
           <div>
-            <label htmlFor="art" className="block text-2xl font-semibold text-gray-900 mb-4">
+            <label htmlFor="art" className="block text-3xl font-bold text-sage-900 mb-6">
               Artwork Image
             </label>
-            <div className="border-2 border-dashed border-gray-300 rounded-xl p-12 text-center hover:border-blue-500 transition-colors cursor-pointer">
-              <div className="text-6xl mb-4">🎨</div>
-              <p className="text-xl text-gray-700 mb-2">Click to upload your artwork</p>
-              <p className="text-lg text-gray-500">PNG, JPG, or GIF up to 10MB</p>
+            <div className="border-3 border-dashed border-sage-300 rounded-2xl p-16 text-center hover:border-orange-500 hover:bg-orange-50 transition-all duration-300 cursor-pointer shadow-lg">
+              <div className="text-8xl mb-6">🎨</div>
+              <p className="text-2xl font-bold text-sage-900 mb-3">Click to upload your artwork</p>
+              <p className="text-xl text-sage-600">PNG, JPG, or GIF up to 10MB</p>
             </div>
           </div>
         )}
 
         {/* Submit Button */}
-        <div className="flex gap-4 pt-6">
-          <Button type="submit" variant="primary" size="large" className="flex-1">
-            Publish Content
+        <div className="flex flex-col sm:flex-row gap-6 pt-8">
+          <Button type="submit" variant="primary" size="large" className="flex-1 text-2xl py-6">
+            ✨ Publish Content
           </Button>
           <Button
             type="button"
             variant="outline"
             size="large"
+            className="text-2xl py-6"
             onClick={() => window.location.href = '/'}
           >
             Cancel
@@ -209,16 +211,32 @@ export default function UploadPage() {
       </form>
 
       {/* Help Section */}
-      <div className="mt-8 bg-blue-50 rounded-xl p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          💡 Tips for Sharing
+      <div className="mt-10 bg-gradient-to-br from-purple-50 to-purple-100 rounded-3xl p-10 border-2 border-purple-200 shadow-xl">
+        <h2 className="text-4xl font-bold text-sage-900 mb-6 flex items-center gap-3">
+          <span className="text-5xl">💡</span>
+          Tips for Sharing
         </h2>
-        <ul className="space-y-3 text-lg text-gray-700">
-          <li>• Use clear, descriptive titles that capture attention</li>
-          <li>• Write detailed descriptions to help people find your content</li>
-          <li>• For videos, good lighting and clear audio make a big difference</li>
-          <li>• Be authentic - people connect with genuine stories and experiences</li>
-          <li>• Share regularly to build an engaged audience</li>
+        <ul className="space-y-4 text-2xl text-sage-700 leading-relaxed">
+          <li className="flex items-start gap-3">
+            <span className="text-orange-500 font-bold mt-1">•</span>
+            <span>Use clear, descriptive titles that capture attention</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-orange-500 font-bold mt-1">•</span>
+            <span>Write detailed descriptions to help people find your content</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-orange-500 font-bold mt-1">•</span>
+            <span>For videos, good lighting and clear audio make a big difference</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-orange-500 font-bold mt-1">•</span>
+            <span>Be authentic - people connect with genuine stories and experiences</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-orange-500 font-bold mt-1">•</span>
+            <span>Share regularly to build an engaged audience</span>
+          </li>
         </ul>
       </div>
     </div>
