@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+/* Senior-friendly accessibility enhancements */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* High contrast focus indicators */
+*:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Ensure minimum touch target size for seniors */
+button,
+a,
+input,
+select,
+textarea {
+  min-height: 44px;
+}
+
+/* Better readability */
+p {
+  max-width: 65ch;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
