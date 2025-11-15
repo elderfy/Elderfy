@@ -9,25 +9,29 @@ interface ElderCardProps {
 export default function ElderCard({ elder }: ElderCardProps) {
   return (
     <Link href={`/elder/${elder.id}`}>
-      <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden cursor-pointer border-2 border-gray-200 hover:border-blue-500">
-        <div className="relative h-64 w-full">
+      <div className="group bg-gradient-to-br from-white to-warmOrange-50 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-warmOrange-200 hover:border-warmOrange-400 transform hover:-translate-y-2">
+        <div className="relative h-72 w-full overflow-hidden">
           <Image
             src={elder.photo}
             alt={`Photo of ${elder.name}`}
             fill
-            className="object-cover"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         </div>
-        <div className="p-6">
-          <h3 className="text-2xl font-bold mb-2 text-gray-900">{elder.name}</h3>
-          <p className="text-xl text-gray-600 mb-3">{elder.age} years old</p>
-          <p className="text-lg text-gray-700 mb-4 line-clamp-3">{elder.bio}</p>
+        <div className="p-6 bg-white">
+          <h3 className="text-2xl font-bold mb-2 text-sage-900 group-hover:text-warmOrange-700 transition-colors">{elder.name}</h3>
+          <p className="text-xl text-sage-600 mb-3 flex items-center gap-2">
+            <span className="text-2xl">🎂</span>
+            {elder.age} years young
+          </p>
+          <p className="text-lg text-sage-700 mb-4 line-clamp-3 leading-relaxed">{elder.bio}</p>
           <div className="flex flex-wrap gap-2">
             {elder.expertise.map((skill) => (
               <span
                 key={skill}
-                className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-base font-medium"
+                className="bg-gradient-to-r from-warmOrange-100 to-warmPurple-100 text-warmOrange-800 px-4 py-2 rounded-full text-base font-semibold border border-warmOrange-200"
               >
                 {skill}
               </span>
