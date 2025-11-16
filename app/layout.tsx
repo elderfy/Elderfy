@@ -29,6 +29,20 @@ export default function RootLayout({
               <p className="text-xl text-warmOrange-200">
                 Connecting generations through shared wisdom
               </p>
+              <div className="flex justify-center gap-6 pt-4">
+                <a href="/" className="text-lg text-sage-300 hover:text-warmOrange-200 transition-colors">
+                  Home
+                </a>
+                <a href="/elders" className="text-lg text-sage-300 hover:text-warmOrange-200 transition-colors">
+                  Elders
+                </a>
+                <a href="/about" className="text-lg text-sage-300 hover:text-warmOrange-200 transition-colors">
+                  About
+                </a>
+                <a href="/upload" className="text-lg text-sage-300 hover:text-warmOrange-200 transition-colors">
+                  Share Wisdom
+                </a>
+              </div>
               <p className="text-lg text-sage-300 pt-4">
                 &copy; 2024 Elderfy. Made with ❤️ for our elders.
               </p>
