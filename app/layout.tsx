@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Navigation from '@/components/Navigation';
+import { TextSizeProvider } from '@/contexts/TextSizeContext';
+import TextSizeControl from '@/components/TextSizeControl';
 
 export const metadata: Metadata = {
   title: 'Elderfy - Share Wisdom Across Generations',
@@ -15,13 +17,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen">
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        <Navigation />
-        <main id="main-content" className="container mx-auto px-4 py-12" tabIndex={-1}>
-          {children}
-        </main>
+        <TextSizeProvider>
+          <a href="#main-content" className="skip-link">
+            Skip to main content
+          </a>
+          <Navigation />
+
+          {/* Floating Text Size Control */}
+          <div className="fixed bottom-6 right-6 z-30">
+            <TextSizeControl />
+          </div>
+
+          <main id="main-content" className="container mx-auto px-4 py-12" tabIndex={-1}>
+            {children}
+          </main>
         <footer className="bg-gradient-to-r from-sage-800 to-sage-900 text-white mt-20">
           <div className="container mx-auto px-4 py-10">
             <div className="text-center space-y-4">
@@ -52,6 +61,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        </TextSizeProvider>
       </body>
     </html>
   );
