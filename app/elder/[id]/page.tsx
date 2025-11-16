@@ -70,7 +70,7 @@ export default async function ElderProfilePage({ params }: PageProps) {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <DonateButton elderFirstName={elder.name.split(' ')[0]} />
-              <SubscribeButton elderName={elder.name.split(' ')[0]} elderId={elder.id} />
+              <SubscribeButton elderName={elder.name.split(' ')[0]} elderId={elder.id} elderEmail={elder.email} />
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@ export default async function ElderProfilePage({ params }: PageProps) {
         <p className="text-xl md:text-2xl mb-10 leading-relaxed">
           Your donations help {elder.name.split(' ')[0]} continue sharing valuable wisdom and experiences with the community.
         </p>
-        <DonationForm elderName={elder.name.split(' ')[0]} elderId={elder.id} />
+        <DonationForm elderName={elder.name.split(' ')[0]} elderId={elder.id} elderEmail={elder.email} />
         <p className="text-lg mt-6 opacity-90">
           🔒 Secure payment processing powered by Stripe
         </p>

@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
 
 export async function POST(request: NextRequest) {
   try {
-    const { elderName, elderId } = await request.json();
+    const { elderName, elderId, elderEmail } = await request.json();
 
     // In production, you'd create a Stripe Price ID for monthly subscriptions
     // For now, we'll use a fixed $10/month subscription
@@ -32,9 +32,18 @@ export async function POST(request: NextRequest) {
       mode: 'subscription',
       success_url: `${request.headers.get('origin')}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${request.headers.get('origin')}/elder/${elderId}`,
+      subscription_data: {
+        metadata: {
+          elderId,
+          elderName,
+          elderEmail,
+          type: 'subscription',
+        },
+      },
       metadata: {
         elderId,
         elderName,
+        elderEmail,
         type: 'subscription',
       },
     });

@@ -6,6 +6,7 @@ export interface Elder {
   photo: string;
   expertise: string[];
   joinedDate: string;
+  email: string;
 }
 
 export interface Content {

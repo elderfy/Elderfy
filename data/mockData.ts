@@ -9,6 +9,7 @@ export const mockElders: Elder[] = [
     photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&h=800&fit=crop&q=80',
     expertise: ['Education', 'Gardening', 'Life Wisdom'],
     joinedDate: '2024-01-15',
+    email: 'margaret.thompson@example.com',
   },
   {
     id: '2',
@@ -18,6 +19,7 @@ export const mockElders: Elder[] = [
     photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&q=80',
     expertise: ['Music', 'Jazz', 'Composition'],
     joinedDate: '2024-02-20',
+    email: 'robert.williams@example.com',
   },
   {
     id: '3',
@@ -27,6 +29,7 @@ export const mockElders: Elder[] = [
     photo: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&h=800&fit=crop&q=80',
     expertise: ['Art', 'Painting', 'Watercolor'],
     joinedDate: '2024-03-10',
+    email: 'dorothy.chen@example.com',
   },
   {
     id: '4',
@@ -36,6 +39,7 @@ export const mockElders: Elder[] = [
     photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=800&fit=crop&q=80',
     expertise: ['Woodworking', 'Craftsmanship', 'Building'],
     joinedDate: '2024-01-28',
+    email: 'james.oconnor@example.com',
   },
 ];
 

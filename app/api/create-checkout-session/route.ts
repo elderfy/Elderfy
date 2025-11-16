@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
 
 export async function POST(request: NextRequest) {
   try {
-    const { amount, elderName, elderId } = await request.json();
+    const { amount, elderName, elderId, elderEmail } = await request.json();
 
     if (!amount || amount < 1) {
       return NextResponse.json({ error: 'Invalid amount' }, { status: 400 });
@@ -34,6 +34,7 @@ export async function POST(request: NextRequest) {
       metadata: {
         elderId,
         elderName,
+        elderEmail,
         type: 'donation',
       },
     });

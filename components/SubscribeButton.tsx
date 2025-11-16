@@ -6,9 +6,10 @@ import Button from './Button';
 interface SubscribeButtonProps {
   elderName: string;
   elderId: string;
+  elderEmail: string;
 }
 
-export default function SubscribeButton({ elderName, elderId }: SubscribeButtonProps) {
+export default function SubscribeButton({ elderName, elderId, elderEmail }: SubscribeButtonProps) {
   const [loading, setLoading] = useState(false);
 
   const handleSubscribe = async () => {
@@ -23,6 +24,7 @@ export default function SubscribeButton({ elderName, elderId }: SubscribeButtonP
         body: JSON.stringify({
           elderName,
           elderId,
+          elderEmail,
         }),
       });
 

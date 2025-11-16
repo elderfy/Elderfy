@@ -6,9 +6,10 @@ import Button from './Button';
 interface DonationFormProps {
   elderName: string;
   elderId: string;
+  elderEmail: string;
 }
 
-export default function DonationForm({ elderName, elderId }: DonationFormProps) {
+export default function DonationForm({ elderName, elderId, elderEmail }: DonationFormProps) {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState('');
   const [loading, setLoading] = useState(false);
@@ -31,6 +32,7 @@ export default function DonationForm({ elderName, elderId }: DonationFormProps) 
           amount,
           elderName,
           elderId,
+          elderEmail,
         }),
       });
 
