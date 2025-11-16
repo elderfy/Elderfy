@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import ContentCard from '@/components/ContentCard';
-import Button from '@/components/Button';
 import DonateButton from '@/components/DonateButton';
+import SubscribeButton from '@/components/SubscribeButton';
+import DonationForm from '@/components/DonationForm';
 import { getElderById, getContentByElderId } from '@/lib/data';
 
 interface PageProps {
@@ -61,9 +62,7 @@ export default async function ElderProfilePage({ params }: PageProps) {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <DonateButton elderFirstName={elder.name.split(' ')[0]} />
-              <Button variant="outline" size="large">
-                ⭐ Subscribe
-              </Button>
+              <SubscribeButton elderName={elder.name.split(' ')[0]} elderId={elder.id} />
             </div>
           </div>
         </div>
@@ -99,27 +98,7 @@ export default async function ElderProfilePage({ params }: PageProps) {
         <p className="text-xl md:text-2xl mb-10 leading-relaxed">
           Your donations help {elder.name.split(' ')[0]} continue sharing valuable wisdom and experiences with the community.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          {[5, 10, 25, 50].map((amount) => (
-            <button
-              key={amount}
-              className="bg-white text-warmPurple-700 px-6 py-5 rounded-2xl text-2xl font-bold hover:bg-warmOrange-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-              ${amount}
-            </button>
-          ))}
-        </div>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <input
-            type="number"
-            placeholder="Custom amount"
-            className="flex-1 px-6 py-4 rounded-xl text-xl text-sage-900 focus:outline-none focus:ring-4 focus:ring-warmOrange-300 shadow-lg"
-            min="1"
-          />
-          <Button variant="secondary" size="large" className="bg-white text-warmPurple-700 hover:bg-warmOrange-50">
-            💳 Donate Now
-          </Button>
-        </div>
+        <DonationForm elderName={elder.name.split(' ')[0]} elderId={elder.id} />
         <p className="text-lg mt-6 opacity-90">
           🔒 Secure payment processing powered by Stripe
         </p>
