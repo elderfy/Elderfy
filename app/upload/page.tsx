@@ -56,6 +56,27 @@ export default function UploadPage() {
 
   return (
     <div className="max-w-4xl mx-auto">
+      {/* Registration Notice */}
+      <div className="bg-gradient-to-r from-warmOrange-500 to-warmPurple-500 rounded-3xl shadow-2xl p-8 md:p-10 text-white mb-12 border-4 border-warmOrange-300">
+        <div className="flex flex-col md:flex-row items-center gap-6">
+          <div className="text-7xl">👋</div>
+          <div className="flex-1 text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              New to Elderfy?
+            </h2>
+            <p className="text-xl md:text-2xl opacity-95 mb-4">
+              Register as an elder first to create your profile and start sharing wisdom with the community!
+            </p>
+            <a
+              href="/register"
+              className="inline-block bg-white text-warmOrange-600 px-8 py-4 rounded-full text-xl md:text-2xl font-bold hover:bg-warmOrange-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              🚀 Register Now
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className="text-center mb-12">
         <div className="text-7xl mb-6">✨</div>
         <h1 className="text-6xl md:text-7xl font-bold text-sage-900 mb-6">

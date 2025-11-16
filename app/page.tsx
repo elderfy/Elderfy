@@ -108,6 +108,25 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Elder Registration CTA */}
+      <section className="bg-gradient-to-r from-warmOrange-500 to-warmPurple-500 rounded-3xl shadow-2xl p-10 md:p-14 text-white text-center">
+        <div className="text-7xl mb-6">🚀</div>
+        <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          Ready to Share Your Wisdom?
+        </h2>
+        <p className="text-2xl md:text-3xl mb-10 max-w-3xl mx-auto opacity-95 leading-relaxed">
+          Join our community of elders sharing their life experiences, expertise, and creativity while earning income.
+        </p>
+        <Link href="/register">
+          <Button variant="secondary" size="large" className="bg-white text-warmOrange-700 hover:bg-warmOrange-50 text-2xl px-12 py-6">
+            Register as an Elder
+          </Button>
+        </Link>
+        <p className="text-xl mt-6 opacity-90">
+          Free to join • Start earning immediately • Share on your terms
+        </p>
+      </section>
     </div>
   );
 }

@@ -238,16 +238,16 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <a
-              href="/"
+              href="/register"
               className="bg-white text-warmOrange-600 px-10 py-5 rounded-full text-2xl font-bold hover:bg-warmOrange-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Explore Elder Wisdom
+              🚀 Register as an Elder
             </a>
             <a
-              href="/upload"
+              href="/"
               className="border-4 border-white text-white px-10 py-5 rounded-full text-2xl font-bold hover:bg-white hover:text-warmPurple-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Share Your Wisdom
+              Explore Elder Wisdom
             </a>
           </div>
         </div>
