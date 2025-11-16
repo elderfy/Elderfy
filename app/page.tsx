@@ -3,6 +3,7 @@ import ElderCard from '@/components/ElderCard';
 import ContentCard from '@/components/ContentCard';
 import Button from '@/components/Button';
 import { getAllElders, getAllContent, getElderById } from '@/lib/data';
+import { getContentViews } from '@/lib/analytics';
 
 export default function HomePage() {
   const elders = getAllElders();
@@ -65,11 +66,13 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {recentContent.map((item) => {
             const elder = getElderById(item.elderId);
+            const views = getContentViews(item.id);
             return (
               <ContentCard
                 key={item.id}
                 content={item}
                 elderName={elder?.name}
+                views={views}
               />
             );
           })}

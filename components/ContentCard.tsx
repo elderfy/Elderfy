@@ -5,9 +5,10 @@ import { Content } from '@/types';
 interface ContentCardProps {
   content: Content;
   elderName?: string;
+  views?: number;
 }
 
-export default function ContentCard({ content, elderName }: ContentCardProps) {
+export default function ContentCard({ content, elderName, views }: ContentCardProps) {
   const getTypeIcon = (type: string) => {
     switch (type) {
       case 'video': return '🎥';
@@ -53,10 +54,18 @@ export default function ContentCard({ content, elderName }: ContentCardProps) {
         )}
         <p className="text-lg text-sage-700 mb-4 line-clamp-2 leading-relaxed">{content.description}</p>
         <div className="flex items-center justify-between pt-4 border-t border-warmPurple-100">
-          <span className="text-lg text-warmOrange-600 font-semibold flex items-center gap-1">
-            <span className="text-2xl">❤️</span>
-            {content.likes}
-          </span>
+          <div className="flex items-center gap-4">
+            <span className="text-lg text-warmOrange-600 font-semibold flex items-center gap-1">
+              <span className="text-2xl">❤️</span>
+              {content.likes}
+            </span>
+            {views !== undefined && (
+              <span className="text-lg text-sage-600 font-semibold flex items-center gap-1">
+                <span className="text-2xl">👁️</span>
+                {views.toLocaleString()}
+              </span>
+            )}
+          </div>
           <Link href={`/content/${content.id}`}>
             <button className="bg-gradient-to-r from-warmOrange-500 to-warmOrange-600 hover:from-warmOrange-600 hover:to-warmOrange-700 text-white px-6 py-3 rounded-xl text-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
               View →

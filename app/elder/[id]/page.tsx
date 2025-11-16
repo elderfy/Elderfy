@@ -4,7 +4,9 @@ import ContentCard from '@/components/ContentCard';
 import DonateButton from '@/components/DonateButton';
 import SubscribeButton from '@/components/SubscribeButton';
 import DonationForm from '@/components/DonationForm';
+import ViewTracker from '@/components/ViewTracker';
 import { getElderById, getContentByElderId, getAllElders } from '@/lib/data';
+import { getElderViews, getContentViews } from '@/lib/analytics';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -27,9 +29,17 @@ export default async function ElderProfilePage({ params }: PageProps) {
   }
 
   const content = getContentByElderId(id);
+  const profileViews = getElderViews(id);
+
+  // Get view counts for all content
+  const contentViewsMap = new Map(
+    content.map(item => [item.id, getContentViews(item.id)])
+  );
 
   return (
     <div className="space-y-12">
+      {/* Track view for analytics */}
+      <ViewTracker type="elder" id={id} />
       {/* Elder Profile Header */}
       <div className="bg-gradient-to-br from-white to-warmOrange-50 rounded-3xl shadow-2xl overflow-hidden border-2 border-warmOrange-200">
         <div className="md:flex">
@@ -48,10 +58,16 @@ export default async function ElderProfilePage({ params }: PageProps) {
             <h1 className="text-5xl font-bold text-sage-900 mb-4">
               {elder.name}
             </h1>
-            <p className="text-2xl text-sage-600 mb-6 flex items-center gap-2">
-              <span className="text-3xl">🎂</span>
-              {elder.age} years young
-            </p>
+            <div className="flex flex-wrap items-center gap-6 mb-6">
+              <p className="text-2xl text-sage-600 flex items-center gap-2">
+                <span className="text-3xl">🎂</span>
+                {elder.age} years young
+              </p>
+              <p className="text-2xl text-sage-600 flex items-center gap-2">
+                <span className="text-3xl">👁️</span>
+                {profileViews.toLocaleString()} views
+              </p>
+            </div>
             <p className="text-xl text-sage-700 mb-8 leading-relaxed">
               {elder.bio}
             </p>
@@ -85,7 +101,11 @@ export default async function ElderProfilePage({ params }: PageProps) {
         {content.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {content.map((item) => (
-              <ContentCard key={item.id} content={item} />
+              <ContentCard
+                key={item.id}
+                content={item}
+                views={contentViewsMap.get(item.id)}
+              />
             ))}
           </div>
         ) : (

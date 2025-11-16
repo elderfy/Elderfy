@@ -7,6 +7,8 @@ export interface Elder {
   expertise: string[];
   joinedDate: string;
   email: string;
+  views?: number;
+  totalEngagement?: number; // Total likes + views across all content
 }
 
 export interface Content {
@@ -19,6 +21,7 @@ export interface Content {
   thumbnail?: string;
   createdAt: string;
   likes: number;
+  views?: number;
 }
 
 export interface Donation {

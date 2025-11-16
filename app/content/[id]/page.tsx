@@ -2,7 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Button from '@/components/Button';
+import ViewTracker from '@/components/ViewTracker';
 import { getContentById, getElderById, getAllContent } from '@/lib/data';
+import { getContentViews } from '@/lib/analytics';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -30,8 +32,12 @@ export default async function ContentDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const contentViews = getContentViews(id);
+
   return (
     <div className="max-w-4xl mx-auto space-y-8">
+      {/* Track view for analytics */}
+      <ViewTracker type="content" id={id} />
       {/* Breadcrumb */}
       <nav className="text-lg">
         <Link href="/" className="text-blue-600 hover:text-blue-800">
@@ -89,6 +95,7 @@ export default async function ContentDetailPage({ params }: PageProps) {
 
         <div className="flex items-center gap-6 text-lg text-gray-600">
           <span>❤️ {content.likes} likes</span>
+          <span>👁️ {contentViews.toLocaleString()} views</span>
           <span>📅 {new Date(content.createdAt).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
