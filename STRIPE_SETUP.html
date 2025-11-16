@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elderfy - Stripe Payment Setup Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #2d332d;
+        }
+        h1 {
+            color: #f97316;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #f97316;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #a855f7;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #637263;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+        .highlight {
+            background: #ffedd5;
+            padding: 15px;
+            border-left: 4px solid #f97316;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .step {
+            background: #f6f7f6;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #c7cdc7;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #a855f7;
+            color: white;
+        }
+        code {
+            background: #e3e6e3;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .warning {
+            background: #fff7ed;
+            border-left: 4px solid #fb923c;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        ol, ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        @media print {
+            body {
+                padding: 20px;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🌟 Elderfy - Stripe Payment Setup Guide</h1>
+
+    <div class="highlight">
+        <strong>⏱️ Setup Time:</strong> 5 minutes<br>
+        <strong>💰 Cost:</strong> Free (2.9% + $0.30 per transaction)<br>
+        <strong>📱 Mobile Friendly:</strong> Yes! Can setup from your phone
+    </div>
+
+    <h2>🚀 Quick Setup (Test Mode)</h2>
+
+    <div class="step">
+        <h3>Step 1: Create Stripe Account</h3>
+        <ol>
+            <li>Go to <a href="https://dashboard.stripe.com/register">https://dashboard.stripe.com/register</a></li>
+            <li>Sign up with your email address</li>
+            <li>Enter basic business information</li>
+            <li>Skip detailed onboarding for now (can complete later)</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 2: Get Your Test API Keys</h3>
+        <ol>
+            <li>Log into Stripe Dashboard</li>
+            <li>Go to <a href="https://dashboard.stripe.com/test/apikeys">https://dashboard.stripe.com/test/apikeys</a></li>
+            <li>Make sure you're in <strong>Test mode</strong> (toggle in top right)</li>
+            <li>Copy both keys:
+                <ul>
+                    <li><strong>Publishable key:</strong> Starts with <code>pk_test_</code></li>
+                    <li><strong>Secret key:</strong> Click "Reveal test key" - starts with <code>sk_test_</code></li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 3: Add Keys to Vercel</h3>
+        <ol>
+            <li>Open <a href="https://vercel.com/dashboard">https://vercel.com/dashboard</a></li>
+            <li>Click on your <strong>elderfy</strong> project</li>
+            <li>Go to <strong>Settings</strong> → <strong>Environment Variables</strong></li>
+            <li>Add Variable #1:</li>
+        </ol>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td><code>NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY</code></td>
+                <td>Your <code>pk_test_...</code> key</td>
+            </tr>
+        </table>
+
+        <ol start="5">
+            <li>Click <strong>Save</strong></li>
+            <li>Add Variable #2:</li>
+        </ol>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td><code>STRIPE_SECRET_KEY</code></td>
+                <td>Your <code>sk_test_...</code> key</td>
+            </tr>
+        </table>
+
+        <ol start="7">
+            <li>Click <strong>Save</strong></li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 4: Redeploy Your Site</h3>
+        <ol>
+            <li>Go to <strong>Deployments</strong> tab in Vercel</li>
+            <li>Click the <strong>three dots (...)</strong> on the latest deployment</li>
+            <li>Click <strong>Redeploy</strong></li>
+            <li>Wait 2-3 minutes for deployment to complete</li>
+        </ol>
+    </div>
+
+    <div class="success">
+        <h3>✅ You're Done!</h3>
+        <p>Your site now accepts test payments. Try it out!</p>
+    </div>
+
+    <h2>🧪 Testing Payments</h2>
+
+    <p>Use these Stripe test card numbers:</p>
+
+    <table>
+        <tr>
+            <th>Scenario</th>
+            <th>Card Number</th>
+        </tr>
+        <tr>
+            <td>✅ Successful Payment</td>
+            <td><code>4242 4242 4242 4242</code></td>
+        </tr>
+        <tr>
+            <td>❌ Card Declined</td>
+            <td><code>4000 0000 0000 0002</code></td>
+        </tr>
+        <tr>
+            <td>🔐 Requires Authentication</td>
+            <td><code>4000 0025 0000 3155</code></td>
+        </tr>
+    </table>
+
+    <p><strong>Additional test info:</strong></p>
+    <ul>
+        <li>Use any future expiry date (e.g., 12/25, 06/30)</li>
+        <li>Use any 3-digit CVC (e.g., 123, 456)</li>
+        <li>Use any ZIP code (e.g., 12345, 90210)</li>
+    </ul>
+
+    <h2>💸 Payment Flow</h2>
+
+    <div class="step">
+        <h3>Donations (One-Time Payments)</h3>
+        <ol>
+            <li>User clicks amount button ($5, $10, $25, $50) or enters custom amount</li>
+            <li>Redirected to Stripe Checkout (secure Stripe-hosted page)</li>
+            <li>User enters payment details</li>
+            <li>On success → redirected to <code>/success</code> page</li>
+            <li>On cancel → redirected back to elder profile</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Subscriptions (Recurring Monthly)</h3>
+        <ol>
+            <li>User clicks "Subscribe" button</li>
+            <li>Creates $10/month recurring subscription</li>
+            <li>Same checkout flow as donations</li>
+            <li>Auto-charges every month until cancelled</li>
+            <li>User can manage/cancel in Stripe Customer Portal</li>
+        </ol>
+    </div>
+
+    <h2>🏦 Going Live (Real Payments)</h2>
+
+    <div class="warning">
+        <strong>⚠️ Important:</strong> Only do this when you're ready to accept real money!
+    </div>
+
+    <div class="step">
+        <h3>Step 1: Complete Stripe Onboarding</h3>
+        <ol>
+            <li>Go to <a href="https://dashboard.stripe.com/account/onboarding">https://dashboard.stripe.com/account/onboarding</a></li>
+            <li>Provide business details:
+                <ul>
+                    <li>Business type and address</li>
+                    <li>Tax information</li>
+                    <li>Bank account for payouts</li>
+                </ul>
+            </li>
+            <li>Complete identity verification (ID/passport upload)</li>
+            <li>Wait for Stripe approval (usually instant, can take 1-2 days)</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 2: Get Live API Keys</h3>
+        <ol>
+            <li>In Stripe Dashboard, toggle from <strong>Test mode</strong> to <strong>Live mode</strong> (top right)</li>
+            <li>Go to <a href="https://dashboard.stripe.com/apikeys">https://dashboard.stripe.com/apikeys</a></li>
+            <li>Copy both LIVE keys:
+                <ul>
+                    <li>Publishable key: <code>pk_live_...</code></li>
+                    <li>Secret key: <code>sk_live_...</code></li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 3: Update Vercel Environment Variables</h3>
+        <ol>
+            <li>Go to Vercel Dashboard → elderfy → Settings → Environment Variables</li>
+            <li>Edit <code>NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY</code>
+                <ul>
+                    <li>Replace test key with live <code>pk_live_...</code> key</li>
+                </ul>
+            </li>
+            <li>Edit <code>STRIPE_SECRET_KEY</code>
+                <ul>
+                    <li>Replace test key with live <code>sk_live_...</code> key</li>
+                </ul>
+            </li>
+            <li>Save both changes</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 4: Redeploy</h3>
+        <ol>
+            <li>Go to Deployments → Click (...) → Redeploy</li>
+            <li>Your site now accepts REAL payments!</li>
+        </ol>
+    </div>
+
+    <h2>💰 Pricing & Fees</h2>
+
+    <table>
+        <tr>
+            <th>Fee Type</th>
+            <th>Amount</th>
+        </tr>
+        <tr>
+            <td>Per Transaction</td>
+            <td>2.9% + $0.30</td>
+        </tr>
+        <tr>
+            <td>Monthly Fee</td>
+            <td>$0 (Free)</td>
+        </tr>
+        <tr>
+            <td>Setup Fee</td>
+            <td>$0 (Free)</td>
+        </tr>
+        <tr>
+            <td>Payout Time</td>
+            <td>2-7 business days</td>
+        </tr>
+    </table>
+
+    <p><strong>Example:</strong> Someone donates $10</p>
+    <ul>
+        <li>Stripe fee: $0.29 + $0.30 = $0.59</li>
+        <li>You receive: $9.41</li>
+    </ul>
+
+    <h2>⚙️ Customization</h2>
+
+    <div class="step">
+        <h3>Change Subscription Price</h3>
+        <ol>
+            <li>Edit file: <code>app/api/create-subscription/route.ts</code></li>
+            <li>Find line 23: <code>unit_amount: 1000</code></li>
+            <li>Change amount:
+                <ul>
+                    <li><code>500</code> = $5.00/month</li>
+                    <li><code>1000</code> = $10.00/month (current)</li>
+                    <li><code>2500</code> = $25.00/month</li>
+                </ul>
+            </li>
+            <li>Commit and push changes</li>
+        </ol>
+    </div>
+
+    <h2>🔔 Webhooks (Optional)</h2>
+
+    <p>Webhooks notify your app when payments succeed. Useful for:</p>
+    <ul>
+        <li>Saving payment records to database</li>
+        <li>Sending thank-you emails</li>
+        <li>Updating user subscriptions</li>
+    </ul>
+
+    <div class="step">
+        <h3>Setup Webhooks</h3>
+        <ol>
+            <li>Go to <a href="https://dashboard.stripe.com/webhooks">https://dashboard.stripe.com/webhooks</a></li>
+            <li>Click <strong>Add endpoint</strong></li>
+            <li>Enter: <code>https://your-domain.vercel.app/api/webhooks</code></li>
+            <li>Select events to listen for:
+                <ul>
+                    <li><code>checkout.session.completed</code></li>
+                    <li><code>customer.subscription.deleted</code></li>
+                </ul>
+            </li>
+            <li>Copy webhook signing secret</li>
+            <li>Add to Vercel as: <code>STRIPE_WEBHOOK_SECRET</code></li>
+        </ol>
+    </div>
+
+    <h2>📊 Viewing Payments</h2>
+
+    <p><strong>Test Payments:</strong></p>
+    <ul>
+        <li>Dashboard: <a href="https://dashboard.stripe.com/test/payments">https://dashboard.stripe.com/test/payments</a></li>
+        <li>Shows all test transactions (no real money)</li>
+    </ul>
+
+    <p><strong>Live Payments:</strong></p>
+    <ul>
+        <li>Dashboard: <a href="https://dashboard.stripe.com/payments">https://dashboard.stripe.com/payments</a></li>
+        <li>Shows real transactions with real money</li>
+    </ul>
+
+    <h2>🆘 Troubleshooting</h2>
+
+    <table>
+        <tr>
+            <th>Problem</th>
+            <th>Solution</th>
+        </tr>
+        <tr>
+            <td>"API key invalid"</td>
+            <td>Check keys in Vercel match Stripe Dashboard. Redeploy after changes.</td>
+        </tr>
+        <tr>
+            <td>Buttons don't work</td>
+            <td>Ensure environment variables are set. Check browser console for errors.</td>
+        </tr>
+        <tr>
+            <td>No redirect to checkout</td>
+            <td>Verify publishable key starts with <code>NEXT_PUBLIC_</code> in Vercel.</td>
+        </tr>
+        <tr>
+            <td>Test payments not showing</td>
+            <td>Make sure you're in Test mode in Stripe Dashboard.</td>
+        </tr>
+    </table>
+
+    <h2>📚 Resources</h2>
+
+    <ul>
+        <li><strong>Stripe Dashboard:</strong> <a href="https://dashboard.stripe.com">https://dashboard.stripe.com</a></li>
+        <li><strong>Test Cards:</strong> <a href="https://stripe.com/docs/testing">https://stripe.com/docs/testing</a></li>
+        <li><strong>Stripe Docs:</strong> <a href="https://stripe.com/docs">https://stripe.com/docs</a></li>
+        <li><strong>Support:</strong> <a href="https://support.stripe.com">https://support.stripe.com</a></li>
+    </ul>
+
+    <div class="success">
+        <h3>🎉 Congratulations!</h3>
+        <p>Your Elderfy platform is now ready to accept payments and support your elders!</p>
+    </div>
+
+    <div class="no-print" style="margin-top: 40px; padding: 20px; background: #ffedd5; border-radius: 10px; text-align: center;">
+        <h3>💾 To Save as PDF:</h3>
+        <p><strong>On Computer:</strong> Press Ctrl+P (Windows) or Cmd+P (Mac) → Select "Save as PDF"</p>
+        <p><strong>On Mobile:</strong> Tap Share → Print → Save as PDF</p>
+    </div>
+
+</body>
+</html>
