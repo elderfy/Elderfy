@@ -15,8 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Navigation />
-        <main className="container mx-auto px-4 py-12">
+        <main id="main-content" className="container mx-auto px-4 py-12" tabIndex={-1}>
           {children}
         </main>
         <footer className="bg-gradient-to-r from-sage-800 to-sage-900 text-white mt-20">

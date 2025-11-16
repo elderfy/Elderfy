@@ -5,6 +5,8 @@
 :root {
   --background: #fffbf5;
   --foreground: #2d332d;
+  --focus-ring: #f97316;
+  --focus-ring-offset: 2px;
 }
 
 body {
@@ -21,13 +23,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* High contrast focus indicators */
+/* High contrast focus indicators for keyboard navigation */
 *:focus-visible {
-  outline: 3px solid #f97316;
-  outline-offset: 2px;
+  outline: 4px solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: 4px;
 }
 
-/* Ensure minimum touch target size for seniors */
+/* Enhanced focus for interactive elements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 4px solid var(--focus-ring);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.2);
+}
+
+/* Ensure minimum touch target size for seniors (WCAG AAA: 44x44px) */
 button,
 a,
 input,
@@ -41,8 +55,103 @@ p {
   max-width: 65ch;
 }
 
+/* Skip to main content link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: #f97316;
+  color: white;
+  padding: 12px 24px;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 4px solid #2d332d;
+  outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focusable when navigated to via keyboard */
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Reduced motion support for users who prefer less animation */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  *:focus-visible {
+    outline-width: 5px;
+    outline-offset: 4px;
+  }
+
+  button,
+  a {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Better focus indicator for links within text */
+a:focus-visible {
+  background-color: rgba(249, 115, 22, 0.1);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+/* Visible focus for checkbox and radio inputs */
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+  outline: 4px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Utility for focus-visible only (no mouse click outline) */
+  .focus-ring {
+    @apply focus-visible:outline-4 focus-visible:outline-warmOrange-500 focus-visible:outline-offset-2;
+  }
+
+  /* High visibility focus for critical actions */
+  .focus-ring-strong {
+    @apply focus-visible:outline-4 focus-visible:outline-warmOrange-600 focus-visible:outline-offset-3 focus-visible:ring-4 focus-visible:ring-warmOrange-300;
   }
 }
