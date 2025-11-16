@@ -4,10 +4,18 @@ import ContentCard from '@/components/ContentCard';
 import DonateButton from '@/components/DonateButton';
 import SubscribeButton from '@/components/SubscribeButton';
 import DonationForm from '@/components/DonationForm';
-import { getElderById, getContentByElderId } from '@/lib/data';
+import { getElderById, getContentByElderId, getAllElders } from '@/lib/data';
 
 interface PageProps {
   params: Promise<{ id: string }>;
+}
+
+// Generate static params for all elders
+export async function generateStaticParams() {
+  const elders = getAllElders();
+  return elders.map((elder) => ({
+    id: elder.id,
+  }));
 }
 
 export default async function ElderProfilePage({ params }: PageProps) {

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Elderfy</string>
+    <string name="title_activity_main">Elderfy</string>
+    <string name="package_name">com.elderfy.app</string>
+    <string name="custom_url_scheme">com.elderfy.app</string>
+</resources>

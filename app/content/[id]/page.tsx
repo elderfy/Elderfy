@@ -2,10 +2,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Button from '@/components/Button';
-import { getContentById, getElderById } from '@/lib/data';
+import { getContentById, getElderById, getAllContent } from '@/lib/data';
 
 interface PageProps {
   params: Promise<{ id: string }>;
+}
+
+// Generate static params for all content
+export async function generateStaticParams() {
+  const content = getAllContent();
+  return content.map((item) => ({
+    id: item.id,
+  }));
 }
 
 export default async function ContentDetailPage({ params }: PageProps) {
