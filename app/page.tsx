@@ -12,9 +12,9 @@ export default function HomePage() {
   const recentContent = content.slice(0, 4);
 
   return (
-    <div className="space-y-20">
+    <div className="space-y-20 page-transition">
       {/* Hero Section */}
-      <section className="relative text-center py-16 bg-gradient-to-br from-warmOrange-500 via-warmOrange-400 to-warmPurple-500 text-white rounded-3xl shadow-2xl px-8 overflow-hidden">
+      <section className="relative text-center py-16 bg-gradient-to-br from-warmOrange-500 via-warmOrange-400 to-warmPurple-500 text-white rounded-3xl shadow-2xl px-8 overflow-hidden animate-scale-in">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3N2Zz4=')] opacity-30"></div>
         <div className="relative z-10">
           <div className="text-7xl mb-6 animate-bounce">🌟</div>
@@ -53,8 +53,10 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredElders.map((elder) => (
-            <ElderCard key={elder.id} elder={elder} />
+          {featuredElders.map((elder, index) => (
+            <div key={elder.id} style={{ animationDelay: `${index * 100}ms` }}>
+              <ElderCard elder={elder} />
+            </div>
           ))}
         </div>
       </section>
@@ -64,16 +66,17 @@ export default function HomePage() {
         <h2 className="text-5xl font-bold text-sage-900 mb-3">Recent Wisdom</h2>
         <p className="text-xl text-sage-600 mb-10">Fresh insights and creativity from our community</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {recentContent.map((item) => {
+          {recentContent.map((item, index) => {
             const elder = getElderById(item.elderId);
             const views = getContentViews(item.id);
             return (
-              <ContentCard
-                key={item.id}
-                content={item}
-                elderName={elder?.name}
-                views={views}
-              />
+              <div key={item.id} style={{ animationDelay: `${index * 100}ms` }}>
+                <ContentCard
+                  content={item}
+                  elderName={elder?.name}
+                  views={views}
+                />
+              </div>
             );
           })}
         </div>
@@ -88,22 +91,22 @@ export default function HomePage() {
           It's simple to start sharing your wisdom and connecting with people who value your experience
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-warmOrange-50 to-warmOrange-100 border-2 border-warmOrange-200">
-            <div className="text-7xl mb-6 inline-block transform hover:scale-110 transition-transform">👤</div>
+          <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-warmOrange-50 to-warmOrange-100 border-2 border-warmOrange-200 animate-fade-in-up hover-lift cursor-default">
+            <div className="text-7xl mb-6 inline-block transform hover:scale-125 hover:rotate-6 transition-all duration-300">👤</div>
             <h3 className="text-2xl font-bold mb-4 text-sage-900">Create Your Profile</h3>
             <p className="text-lg text-sage-700 leading-relaxed">
               Share your story, expertise, and what you are passionate about with the community.
             </p>
           </div>
-          <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-warmPurple-50 to-warmPurple-100 border-2 border-warmPurple-200">
-            <div className="text-7xl mb-6 inline-block transform hover:scale-110 transition-transform">📹</div>
+          <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-warmPurple-50 to-warmPurple-100 border-2 border-warmPurple-200 animate-fade-in-up animate-delay-100 hover-lift cursor-default">
+            <div className="text-7xl mb-6 inline-block transform hover:scale-125 hover:rotate-6 transition-all duration-300">📹</div>
             <h3 className="text-2xl font-bold mb-4 text-sage-900">Share Your Wisdom</h3>
             <p className="text-lg text-sage-700 leading-relaxed">
               Upload videos, write articles, share music, or display your art for others to enjoy.
             </p>
           </div>
-          <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-warmOrange-50 via-warmPurple-50 to-warmOrange-100 border-2 border-warmOrange-200">
-            <div className="text-7xl mb-6 inline-block transform hover:scale-110 transition-transform">💝</div>
+          <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-warmOrange-50 via-warmPurple-50 to-warmOrange-100 border-2 border-warmOrange-200 animate-fade-in-up animate-delay-200 hover-lift cursor-default">
+            <div className="text-7xl mb-6 inline-block transform hover:scale-125 hover:rotate-6 transition-all duration-300">💝</div>
             <h3 className="text-2xl font-bold mb-4 text-sage-900">Receive Support</h3>
             <p className="text-lg text-sage-700 leading-relaxed">
               People can support you through donations or monthly subscriptions to show appreciation.

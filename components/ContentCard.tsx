@@ -20,14 +20,14 @@ export default function ContentCard({ content, elderName, views }: ContentCardPr
   };
 
   return (
-    <div className="group bg-gradient-to-br from-white to-warmPurple-50 rounded-2xl shadow-xl overflow-hidden border-2 border-warmPurple-200 hover:border-warmPurple-400 transition-all duration-300 transform hover:-translate-y-1">
+    <div className="group bg-gradient-to-br from-white to-warmPurple-50 rounded-2xl shadow-xl overflow-hidden border-2 border-warmPurple-200 hover:border-warmPurple-400 transition-all duration-500 ease-out transform hover:-translate-y-3 hover:scale-105 animate-fade-in-up">
       {content.thumbnail && (
         <div className="relative h-56 w-full overflow-hidden">
           <Image
             src={content.thumbnail}
             alt={content.title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full">
