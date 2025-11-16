@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Button from '@/components/Button';
 import ViewTracker from '@/components/ViewTracker';
+import ShareButtons from '@/components/ShareButtons';
 import { getContentById, getElderById, getAllContent } from '@/lib/data';
 import { getContentViews } from '@/lib/analytics';
 
@@ -93,7 +94,7 @@ export default async function ContentDetailPage({ params }: PageProps) {
           {content.description}
         </p>
 
-        <div className="flex items-center gap-6 text-lg text-gray-600">
+        <div className="flex items-center gap-6 text-lg text-gray-600 mb-8">
           <span>❤️ {content.likes} likes</span>
           <span>👁️ {contentViews.toLocaleString()} views</span>
           <span>📅 {new Date(content.createdAt).toLocaleDateString('en-US', {
@@ -101,6 +102,17 @@ export default async function ContentDetailPage({ params }: PageProps) {
             month: 'long',
             day: 'numeric'
           })}</span>
+        </div>
+
+        {/* Share Buttons */}
+        <div className="pt-8 border-t-2 border-gray-200">
+          <h3 className="text-2xl font-semibold mb-4 text-gray-900">Share this content:</h3>
+          <ShareButtons
+            url={`/content/${id}`}
+            title={`${content.title} by ${elder.name}`}
+            description={content.description}
+            hashtags={[...elder.expertise, content.type, 'Elderfy']}
+          />
         </div>
       </div>
 

@@ -5,6 +5,7 @@ import DonateButton from '@/components/DonateButton';
 import SubscribeButton from '@/components/SubscribeButton';
 import DonationForm from '@/components/DonationForm';
 import ViewTracker from '@/components/ViewTracker';
+import ShareButtons from '@/components/ShareButtons';
 import { getElderById, getContentByElderId, getAllElders } from '@/lib/data';
 import { getElderViews, getContentViews } from '@/lib/analytics';
 
@@ -84,6 +85,18 @@ export default async function ElderProfilePage({ params }: PageProps) {
                 ))}
               </div>
             </div>
+
+            {/* Share Buttons */}
+            <div className="mb-8 pb-8 border-b-2 border-sage-200">
+              <h3 className="text-2xl font-semibold mb-4 text-sage-900">Share Profile:</h3>
+              <ShareButtons
+                url={`/elder/${id}`}
+                title={`${elder.name} - Elder on Elderfy`}
+                description={elder.bio}
+                hashtags={elder.expertise}
+              />
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4">
               <DonateButton elderFirstName={elder.name.split(' ')[0]} />
               <SubscribeButton elderName={elder.name.split(' ')[0]} elderId={elder.id} elderEmail={elder.email} />
