@@ -61,6 +61,12 @@ export default function Navigation() {
                 Elders
               </Link>
               <Link
+                href="/for-elders"
+                className="text-xl font-semibold hover:text-warmOrange-100 transition-all duration-300 px-4 py-2 rounded-lg hover:bg-white/10"
+              >
+                Why Join?
+              </Link>
+              <Link
                 href="/analytics"
                 className="text-xl font-semibold hover:text-warmOrange-100 transition-all duration-300 px-4 py-2 rounded-lg hover:bg-white/10"
               >
@@ -162,6 +168,13 @@ export default function Navigation() {
               className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 text-center"
             >
               <span aria-hidden="true">👵 </span>Elders
+            </Link>
+            <Link
+              href="/for-elders"
+              onClick={closeMenu}
+              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 text-center"
+            >
+              <span aria-hidden="true">💎 </span>Why Join?
             </Link>
             <Link
               href="/analytics"
