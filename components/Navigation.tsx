@@ -158,65 +158,74 @@ export default function Navigation() {
             <Link
               href="/"
               onClick={closeMenu}
-              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 text-center"
+              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 flex items-center justify-center gap-3"
             >
-              <span aria-hidden="true">🏠 </span>Home
+              <span aria-hidden="true">🏠</span>
+              <span>Home</span>
             </Link>
             <Link
               href="/elders"
               onClick={closeMenu}
-              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 text-center"
+              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 flex items-center justify-center gap-3"
             >
-              <span aria-hidden="true">👵 </span>Elders
+              <span aria-hidden="true">👵</span>
+              <span>Elders</span>
             </Link>
             <Link
               href="/for-elders"
               onClick={closeMenu}
-              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 text-center"
+              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 flex items-center justify-center gap-3"
             >
-              <span aria-hidden="true">💎 </span>Why Join?
+              <span aria-hidden="true">💎</span>
+              <span>Why Join?</span>
             </Link>
             <Link
               href="/analytics"
               onClick={closeMenu}
-              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 text-center"
+              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 flex items-center justify-center gap-3"
             >
-              <span aria-hidden="true">📊 </span>Analytics
+              <span aria-hidden="true">📊</span>
+              <span>Analytics</span>
             </Link>
             <Link
               href="/tutorials"
               onClick={closeMenu}
-              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 text-center"
+              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 flex items-center justify-center gap-3"
             >
-              <span aria-hidden="true">📚 </span>Tutorials
+              <span aria-hidden="true">📚</span>
+              <span>Tutorials</span>
             </Link>
             <Link
               href="/faq"
               onClick={closeMenu}
-              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 text-center"
+              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 flex items-center justify-center gap-3"
             >
-              <span aria-hidden="true">❓ </span>FAQ
+              <span aria-hidden="true">❓</span>
+              <span>FAQ</span>
             </Link>
             <Link
               href="/about"
               onClick={closeMenu}
-              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 text-center"
+              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 flex items-center justify-center gap-3"
             >
-              <span aria-hidden="true">ℹ️ </span>About
+              <span aria-hidden="true">ℹ️</span>
+              <span>About</span>
             </Link>
             <Link
               href="/register"
               onClick={closeMenu}
-              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 text-center"
+              className="text-white text-3xl font-bold py-6 px-8 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 active:scale-95 border-2 border-white/20 hover:border-white/40 flex items-center justify-center gap-3"
             >
-              <span aria-hidden="true">🚀 </span>Register
+              <span aria-hidden="true">🚀</span>
+              <span>Register</span>
             </Link>
             <Link
               href="/upload"
               onClick={closeMenu}
-              className="text-warmOrange-700 text-3xl font-bold py-6 px-8 rounded-2xl bg-white hover:bg-warmOrange-50 transition-all duration-300 active:scale-95 shadow-xl border-2 border-white text-center"
+              className="text-warmOrange-700 text-3xl font-bold py-6 px-8 rounded-2xl bg-white hover:bg-warmOrange-50 transition-all duration-300 active:scale-95 shadow-xl border-2 border-white flex items-center justify-center gap-3"
             >
-              <span aria-hidden="true">✨ </span>Share Your Wisdom
+              <span aria-hidden="true">✨</span>
+              <span>Share Your Wisdom</span>
             </Link>
           </nav>
 
