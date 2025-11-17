@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
 
   // Use default Next.js behavior (no trailing slashes) for better compatibility
   trailingSlash: false,
+
+  // Enable system TLS certificates for Google Fonts
+  experimental: {
+    turbopackUseSystemTlsCerts: true,
+  },
 };
 
 export default nextConfig;

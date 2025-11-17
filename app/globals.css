@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #fffbf5;
-  --foreground: #2d332d;
-  --focus-ring: #f97316;
+  --background: #fffefb;
+  --foreground: #212f26;
+  --focus-ring: #e76f51;
   --focus-ring-offset: 2px;
   --text-scale: 1;
 }
@@ -29,14 +29,20 @@ html[data-text-size="extra-large"] {
 
 body {
   color: var(--foreground);
-  background: linear-gradient(180deg, #fffbf5 0%, #fff7ed 100%);
+  background: linear-gradient(180deg, #fffefb 0%, #fef8ea 100%);
   background-attachment: fixed;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.7;
   font-size: calc(18px * var(--text-scale));
 }
 
-/* Apply text scaling to all text elements */
+/* Apply text scaling to all text elements with serif fonts for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
 h1 {
   font-size: calc(2.25rem * var(--text-scale)) !important;
 }
@@ -119,7 +125,7 @@ p {
   position: absolute;
   top: -100px;
   left: 0;
-  background: #f97316;
+  background: #e76f51;
   color: white;
   padding: 12px 24px;
   font-size: 20px;
@@ -131,7 +137,7 @@ p {
 
 .skip-link:focus {
   top: 0;
-  outline: 4px solid #2d332d;
+  outline: 4px solid #212f26;
   outline-offset: 2px;
 }
 
