@@ -15,8 +15,8 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // Disable trailing slashes for better compatibility
-  trailingSlash: true,
+  // Use default Next.js behavior (no trailing slashes) for better compatibility
+  trailingSlash: false,
 };
 
 export default nextConfig;
