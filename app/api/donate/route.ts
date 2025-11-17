@@ -1,14 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-// Initialize Stripe with your secret key
-// In production, use environment variables
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder', {
-  apiVersion: '2025-10-29.clover',
-});
+// Lazy initialization of Stripe to avoid build-time errors
+let stripe: Stripe | null = null;
+
+function getStripe(): Stripe {
+  if (!stripe) {
+    const secretKey = process.env.STRIPE_SECRET_KEY;
+    if (!secretKey) {
+      throw new Error('Stripe is not configured. Please set STRIPE_SECRET_KEY environment variable.');
+    }
+    stripe = new Stripe(secretKey, {
+      apiVersion: '2025-10-29.clover',
+    });
+  }
+  return stripe;
+}
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if Stripe is configured
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return NextResponse.json(
+        { error: 'Payment processing is not configured. Please contact support.' },
+        { status: 503 }
+      );
+    }
+
     const { amount, elderId, donorName, message } = await request.json();
 
     // Validate input
@@ -20,7 +38,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Create a payment intent
-    const paymentIntent = await stripe.paymentIntents.create({
+    const stripeClient = getStripe();
+    const paymentIntent = await stripeClient.paymentIntents.create({
       amount: Math.round(amount * 100), // Convert to cents
       currency: 'usd',
       metadata: {

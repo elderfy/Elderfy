@@ -3,9 +3,21 @@ import Stripe from 'stripe';
 import { Resend } from 'resend';
 import { DonationEmailTemplate, SubscriptionEmailTemplate } from '@/lib/email-templates';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-10-29.clover',
-});
+// Lazy initialization of Stripe to avoid build-time errors
+let stripe: Stripe | null = null;
+
+function getStripe(): Stripe {
+  if (!stripe) {
+    const secretKey = process.env.STRIPE_SECRET_KEY;
+    if (!secretKey) {
+      throw new Error('Stripe is not configured. Please set STRIPE_SECRET_KEY environment variable.');
+    }
+    stripe = new Stripe(secretKey, {
+      apiVersion: '2025-10-29.clover',
+    });
+  }
+  return stripe;
+}
 
 // Initialize Resend lazily to avoid build-time errors if API key is missing
 const getResend = () => {
@@ -15,11 +27,24 @@ const getResend = () => {
   return new Resend(process.env.RESEND_API_KEY);
 };
 
-// Stripe webhook secret for signature verification
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
-
 export async function POST(request: NextRequest) {
   try {
+    // Check if Stripe is configured
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return NextResponse.json(
+        { error: 'Stripe webhooks are not configured' },
+        { status: 503 }
+      );
+    }
+
+    const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+    if (!webhookSecret) {
+      return NextResponse.json(
+        { error: 'Stripe webhook secret is not configured' },
+        { status: 503 }
+      );
+    }
+
     const body = await request.text();
     const signature = request.headers.get('stripe-signature');
 
@@ -33,7 +58,8 @@ export async function POST(request: NextRequest) {
     // Verify the webhook signature
     let event: Stripe.Event;
     try {
-      event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
+      const stripeClient = getStripe();
+      event = stripeClient.webhooks.constructEvent(body, signature, webhookSecret);
     } catch (err) {
       console.error('Webhook signature verification failed:', err);
       return NextResponse.json(
@@ -110,7 +136,8 @@ async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
   console.log('Subscription created:', subscription.id);
 
   // Get customer details
-  const customer = await stripe.customers.retrieve(subscription.customer as string);
+  const stripeClient = getStripe();
+  const customer = await stripeClient.customers.retrieve(subscription.customer as string);
 
   if (customer.deleted) {
     console.error('Customer was deleted');
