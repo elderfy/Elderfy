@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #fffefb;
-  --foreground: #212f26;
-  --focus-ring: #e76f51;
+  --background: #fdfcfb;
+  --foreground: #2d3d35;
+  --focus-ring: #6b8f7f;
   --focus-ring-offset: 2px;
   --text-scale: 1;
 }
@@ -29,18 +29,21 @@ html[data-text-size="extra-large"] {
 
 body {
   color: var(--foreground);
-  background: linear-gradient(180deg, #fffefb 0%, #fef8ea 100%);
+  background: linear-gradient(180deg, #fdfcfb 0%, #faf8f5 100%);
   background-attachment: fixed;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.7;
   font-size: calc(18px * var(--text-scale));
+  font-weight: 400;
+  letter-spacing: -0.011em;
 }
 
-/* Apply text scaling to all text elements with serif fonts for headings */
+/* Apply text scaling to all text elements with refined sans-serif for headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lora', Georgia, serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
+  color: #2d3d35;
 }
 
 h1 {
@@ -354,14 +357,14 @@ input[type="radio"]:focus-visible {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover lift effect for cards */
+/* Hover lift effect for cards - subtle and refined */
 .hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Shimmer effect for skeleton loaders */
