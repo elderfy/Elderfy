@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elderfy Tree of Life Logo - Preview</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+      background: linear-gradient(135deg, #fdfcfb 0%, #f5f3f0 100%);
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: #2d3d35;
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      text-align: center;
+      color: #6b8f7f;
+      font-size: 16px;
+      margin-bottom: 50px;
+      font-weight: 400;
+    }
+    .version-section {
+      margin-bottom: 60px;
+    }
+    .version-title {
+      text-align: center;
+      color: #6b8f7f;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    .preview-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .preview-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .card-label {
+      font-size: 12px;
+      color: #6b8f7f;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+    .dark-bg {
+      background: #2d3d35;
+    }
+    .dark-bg .card-label {
+      color: #d4c3ab;
+    }
+    .sage-bg {
+      background: #6b8f7f;
+    }
+    .sage-bg .card-label {
+      color: #fdfcfb;
+    }
+    .logo-xlarge {
+      width: 240px;
+      height: 240px;
+    }
+    .logo-large {
+      width: 160px;
+      height: 160px;
+    }
+    .logo-medium {
+      width: 80px;
+      height: 80px;
+    }
+    .logo-small {
+      width: 48px;
+      height: 48px;
+    }
+    .logo-tiny {
+      width: 32px;
+      height: 32px;
+    }
+    .logo-favicon {
+      width: 24px;
+      height: 24px;
+    }
+    .specs {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-top: 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .specs h3 {
+      color: #2d3d35;
+      font-size: 18px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .specs ul {
+      list-style: none;
+      color: #6b8f7f;
+      line-height: 1.8;
+    }
+    .specs li:before {
+      content: "→ ";
+      color: #c8876a;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+    .color-palette {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .color-swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .swatch {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border: 2px solid #fff;
+    }
+    .color-label {
+      font-size: 11px;
+      color: #6b8f7f;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Elderfy Tree of Life Logo</h1>
+    <p class="subtitle">Honoring wisdom, roots, and growth</p>
+
+    <!-- Full Color Version -->
+    <div class="version-section">
+      <h2 class="version-title">Full Color Version</h2>
+      <div class="grid">
+        <div class="preview-card">
+          <div class="card-label">Extra Large (240px)</div>
+          <img src="public/elderfy-tree-logo.svg" alt="Elderfy Tree Logo XL" class="logo-xlarge">
+        </div>
+        <div class="preview-card">
+          <div class="card-label">Large (160px)</div>
+          <img src="public/elderfy-tree-logo.svg" alt="Elderfy Tree Logo Large" class="logo-large">
+        </div>
+        <div class="preview-card">
+          <div class="card-label">Medium (80px)</div>
+          <img src="public/elderfy-tree-logo.svg" alt="Elderfy Tree Logo Medium" class="logo-medium">
+        </div>
+        <div class="preview-card">
+          <div class="card-label">Small (48px)</div>
+          <img src="public/elderfy-tree-logo.svg" alt="Elderfy Tree Logo Small" class="logo-small">
+        </div>
+        <div class="preview-card dark-bg">
+          <div class="card-label">Dark Background</div>
+          <img src="public/elderfy-tree-logo.svg" alt="Elderfy Tree Logo Dark" class="logo-large">
+        </div>
+        <div class="preview-card sage-bg">
+          <div class="card-label">Sage Background</div>
+          <img src="public/elderfy-tree-logo.svg" alt="Elderfy Tree Logo Sage" class="logo-large">
+        </div>
+      </div>
+    </div>
+
+    <!-- Monochrome Version -->
+    <div class="version-section">
+      <h2 class="version-title">Monochrome Version (Single Color)</h2>
+      <div class="grid">
+        <div class="preview-card">
+          <div class="card-label">Large (160px)</div>
+          <img src="public/elderfy-tree-logo-mono.svg" alt="Elderfy Tree Logo Mono Large" class="logo-large">
+        </div>
+        <div class="preview-card">
+          <div class="card-label">Medium (80px)</div>
+          <img src="public/elderfy-tree-logo-mono.svg" alt="Elderfy Tree Logo Mono Medium" class="logo-medium">
+        </div>
+        <div class="preview-card">
+          <div class="card-label">Small (48px)</div>
+          <img src="public/elderfy-tree-logo-mono.svg" alt="Elderfy Tree Logo Mono Small" class="logo-small">
+        </div>
+        <div class="preview-card">
+          <div class="card-label">Icon (32px)</div>
+          <img src="public/elderfy-tree-logo-mono.svg" alt="Elderfy Tree Logo Mono Icon" class="logo-tiny">
+        </div>
+        <div class="preview-card">
+          <div class="card-label">Favicon (24px)</div>
+          <img src="public/elderfy-tree-logo-mono.svg" alt="Elderfy Tree Logo Mono Favicon" class="logo-favicon">
+        </div>
+        <div class="preview-card dark-bg">
+          <div class="card-label">Dark Background</div>
+          <img src="public/elderfy-tree-logo-mono.svg" alt="Elderfy Tree Logo Mono Dark" class="logo-large">
+        </div>
+      </div>
+    </div>
+
+    <!-- Specifications -->
+    <div class="specs">
+      <h3>Design Specifications</h3>
+      <ul>
+        <li><strong>Concept:</strong> Tree of Life with balanced roots and branches symbolizing ancestral wisdom and growth</li>
+        <li><strong>Symmetry:</strong> Perfectly balanced design representing stability and wholeness</li>
+        <li><strong>Root System:</strong> As prominent as branches, honoring foundation and ancestry</li>
+        <li><strong>Circular Frame:</strong> Subtle circular element suggesting unity and completeness</li>
+        <li><strong>Scalability:</strong> Clean linework works from 24px (favicon) to any large size</li>
+        <li><strong>Versions:</strong> Full color for web/print, monochrome for versatility</li>
+      </ul>
+
+      <h3 style="margin-top: 30px;">Color Palette</h3>
+      <div class="color-palette">
+        <div class="color-swatch">
+          <div class="swatch" style="background: #4A7C59;"></div>
+          <div class="color-label">Forest Green<br>#4A7C59</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #8B4513;"></div>
+          <div class="color-label">Terra Cotta<br>#8B4513</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #B8860B;"></div>
+          <div class="color-label">Warm Ochre<br>#B8860B</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #6B8F7F;"></div>
+          <div class="color-label">Sage (Mono)<br>#6B8F7F</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 30px;">Symbolism</h3>
+      <ul>
+        <li><strong>Canopy (Green):</strong> Growth, wisdom shared, reaching outward to community</li>
+        <li><strong>Trunk (Terra Cotta):</strong> Strength, stability, connection between generations</li>
+        <li><strong>Roots (Ochre):</strong> Ancestry, foundation, deep cultural knowledge</li>
+        <li><strong>Circular Form:</strong> Wholeness, cycles of life, unity</li>
+        <li><strong>Balance:</strong> Equal emphasis on past (roots) and future (branches)</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
