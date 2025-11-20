@@ -37,19 +37,5 @@ export default function manifest(): MetadataRoute.Manifest {
       },
     ],
     categories: ['social', 'education', 'lifestyle'],
-    screenshots: [
-      {
-        src: '/screenshot-mobile.png',
-        sizes: '540x720',
-        type: 'image/png',
-        form_factor: 'narrow',
-      },
-      {
-        src: '/screenshot-desktop.png',
-        sizes: '1920x1080',
-        type: 'image/png',
-        form_factor: 'wide',
-      },
-    ],
   }
 }
