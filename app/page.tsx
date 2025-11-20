@@ -12,27 +12,25 @@ export default function HomePage() {
   const recentContent = content.slice(0, 4);
 
   return (
-    <div className="space-y-32 page-transition">
+    <div className="space-y-32 page-transition pb-24">
       {/* Hero Section */}
-      <section className="relative text-center py-20 md:py-24 bg-gradient-to-br from-terraCotta-500 via-warmOchre-400 to-terraCotta-400 text-white rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.2)] px-8 md:px-12 overflow-hidden animate-scale-in">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3N2Zz4=')] opacity-30"></div>
-        <div className="relative z-10">
-          <div className="text-7xl mb-8 animate-bounce">🌟</div>
-          <h1 className="text-6xl md:text-8xl font-serif font-bold mb-8 drop-shadow-lg leading-tight">
+      <section className="relative text-center py-32 md:py-40 bg-gradient-to-br from-sage-500 via-sage-600 to-warmBeige-600 text-white rounded-3xl shadow-soft-xl px-8 md:px-12 overflow-hidden">
+        <div className="relative z-10 max-w-4xl mx-auto space-y-8">
+          <h1 className="text-5xl md:text-7xl font-semibold mb-6 leading-tight tracking-tight">
             Welcome to Elderfy
           </h1>
-          <p className="text-2xl md:text-3xl mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md font-light">
+          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-normal opacity-95">
             Where wisdom meets the world. Share your stories, creativity, and life experiences with people who care.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/elders">
-              <Button variant="secondary" size="large" className="bg-white text-terraCotta-700 hover:bg-cream-100 shadow-xl">
-                🔍 Discover Wisdom
+              <Button variant="secondary" size="large" className="bg-white text-sage-800 hover:bg-warmBeige-50 shadow-soft-md hover:shadow-soft-lg">
+                Discover Wisdom
               </Button>
             </Link>
             <Link href="/upload">
-              <Button variant="outline" size="large" className="bg-white/20 backdrop-blur-sm border-2 border-white hover:bg-white/30 text-white shadow-lg">
-                ✨ Share Your Story
+              <Button variant="outline" size="large" className="bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white/20 text-white">
+                Share Your Story
               </Button>
             </Link>
           </div>
@@ -41,28 +39,22 @@ export default function HomePage() {
 
       {/* Featured Elders Section */}
       <section className="scroll-mt-32">
-        {/* Section header with decorative elements */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-0.5 w-16 bg-gradient-to-r from-transparent to-terraCotta-300"></div>
-            <span className="text-5xl">👥</span>
-            <div className="h-0.5 w-16 bg-gradient-to-l from-transparent to-terraCotta-300"></div>
-          </div>
-          <h2 className="text-6xl md:text-7xl font-serif font-bold text-forestGreen-900 mb-6 leading-tight">
+        <div className="text-center mb-20 space-y-4">
+          <h2 className="text-4xl md:text-5xl font-semibold text-sage-900 leading-tight tracking-tight">
             Featured Elders
           </h2>
-          <p className="text-2xl text-forestGreen-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-sage-600 max-w-2xl mx-auto leading-relaxed">
             Meet the wonderful people sharing their wisdom and experience
           </p>
           <div className="mt-8">
             <Link href="/elders">
-              <Button variant="outline" size="medium" className="border-2 border-terraCotta-400 text-terraCotta-700 hover:bg-terraCotta-50">
-                View All Elders →
+              <Button variant="outline" size="medium" className="border-2 border-sage-300 text-sage-700 hover:bg-sage-50">
+                View All Elders
               </Button>
             </Link>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {featuredElders.map((elder, index) => (
             <div key={elder.id} style={{ animationDelay: `${index * 100}ms` }}>
               <ElderCard elder={elder} />
@@ -72,21 +64,16 @@ export default function HomePage() {
       </section>
 
       {/* Recent Content Section */}
-      <section className="bg-gradient-to-br from-cream-100 via-warmOchre-50 to-terraCotta-50 rounded-[2.5rem] p-10 md:p-16 shadow-[0_15px_50px_rgba(0,0,0,0.08)] border-2 border-warmOchre-100">
-        <div className="text-center mb-14">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-0.5 w-16 bg-gradient-to-r from-transparent to-warmOchre-300"></div>
-            <span className="text-5xl">✨</span>
-            <div className="h-0.5 w-16 bg-gradient-to-l from-transparent to-warmOchre-300"></div>
-          </div>
-          <h2 className="text-6xl md:text-7xl font-serif font-bold text-forestGreen-900 mb-6 leading-tight">
+      <section className="bg-gradient-to-br from-warmBeige-50 via-sage-50 to-warmBeige-100 rounded-3xl p-12 md:p-20 shadow-soft-lg border border-sage-100">
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="text-4xl md:text-5xl font-semibold text-sage-900 leading-tight tracking-tight">
             Recent Wisdom
           </h2>
-          <p className="text-2xl text-forestGreen-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-sage-600 max-w-2xl mx-auto leading-relaxed">
             Fresh insights and creativity from our community of honored elders
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {recentContent.map((item, index) => {
             const elder = getElderById(item.elderId);
             const views = getContentViews(item.id);
@@ -104,39 +91,46 @@ export default function HomePage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="bg-white rounded-[2.5rem] shadow-[0_20px_70px_rgba(0,0,0,0.12)] p-10 md:p-16 border-[3px] border-terraCotta-100">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-0.5 w-20 bg-gradient-to-r from-transparent to-forestGreen-300"></div>
-            <span className="text-5xl">🌱</span>
-            <div className="h-0.5 w-20 bg-gradient-to-l from-transparent to-forestGreen-300"></div>
-          </div>
-          <h2 className="text-6xl md:text-7xl font-serif font-bold text-forestGreen-900 mb-8 leading-tight">
+      <section className="bg-white rounded-3xl shadow-soft-lg p-12 md:p-20 border border-sage-100">
+        <div className="text-center mb-20 space-y-4">
+          <h2 className="text-4xl md:text-5xl font-semibold text-sage-900 leading-tight tracking-tight">
             How Elderfy Works
           </h2>
-          <p className="text-2xl text-forestGreen-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-sage-600 max-w-3xl mx-auto leading-relaxed">
             It's simple to start sharing your wisdom and connecting with people who deeply value your experience
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-14">
-          <div className="text-center p-8 rounded-3xl bg-gradient-to-br from-terraCotta-50 to-warmOchre-50 border-[3px] border-terraCotta-200/50 animate-fade-in-up hover:shadow-xl transition-all duration-500 cursor-default">
-            <div className="text-8xl mb-8 inline-block transform hover:scale-110 hover:rotate-3 transition-all duration-500">👤</div>
-            <h3 className="text-3xl font-serif font-bold mb-5 text-forestGreen-900">Create Your Profile</h3>
-            <p className="text-xl text-forestGreen-700 leading-relaxed">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+          <div className="text-center p-10 rounded-2xl bg-gradient-to-br from-sage-50 to-warmBeige-50 border border-sage-100 hover:shadow-soft-md transition-all duration-300">
+            <div className="w-16 h-16 mx-auto mb-6 bg-sage-600 rounded-2xl flex items-center justify-center shadow-soft">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-semibold mb-4 text-sage-900">Create Your Profile</h3>
+            <p className="text-base text-sage-600 leading-relaxed">
               Share your story, expertise, and what you are passionate about with the community.
             </p>
           </div>
-          <div className="text-center p-8 rounded-3xl bg-gradient-to-br from-warmOchre-50 to-cream-100 border-[3px] border-warmOchre-200/50 animate-fade-in-up animate-delay-100 hover:shadow-xl transition-all duration-500 cursor-default">
-            <div className="text-8xl mb-8 inline-block transform hover:scale-110 hover:rotate-3 transition-all duration-500">📹</div>
-            <h3 className="text-3xl font-serif font-bold mb-5 text-forestGreen-900">Share Your Wisdom</h3>
-            <p className="text-xl text-forestGreen-700 leading-relaxed">
+          <div className="text-center p-10 rounded-2xl bg-gradient-to-br from-warmBeige-50 to-sage-50 border border-sage-100 hover:shadow-soft-md transition-all duration-300">
+            <div className="w-16 h-16 mx-auto mb-6 bg-softTerracotta-500 rounded-2xl flex items-center justify-center shadow-soft">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-semibold mb-4 text-sage-900">Share Your Wisdom</h3>
+            <p className="text-base text-sage-600 leading-relaxed">
               Upload videos, write articles, share music, or display your art for others to enjoy.
             </p>
           </div>
-          <div className="text-center p-8 rounded-3xl bg-gradient-to-br from-forestGreen-50 to-cream-100 border-[3px] border-forestGreen-200/50 animate-fade-in-up animate-delay-200 hover:shadow-xl transition-all duration-500 cursor-default">
-            <div className="text-8xl mb-8 inline-block transform hover:scale-110 hover:rotate-3 transition-all duration-500">💝</div>
-            <h3 className="text-3xl font-serif font-bold mb-5 text-forestGreen-900">Receive Support</h3>
-            <p className="text-xl text-forestGreen-700 leading-relaxed">
+          <div className="text-center p-10 rounded-2xl bg-gradient-to-br from-sage-50 to-warmBeige-50 border border-sage-100 hover:shadow-soft-md transition-all duration-300">
+            <div className="w-16 h-16 mx-auto mb-6 bg-warmBeige-600 rounded-2xl flex items-center justify-center shadow-soft">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-semibold mb-4 text-sage-900">Receive Support</h3>
+            <p className="text-base text-sage-600 leading-relaxed">
               People can support you through donations or monthly subscriptions to show appreciation.
             </p>
           </div>
@@ -144,35 +138,39 @@ export default function HomePage() {
       </section>
 
       {/* Elder Registration CTA */}
-      <section className="bg-gradient-to-br from-terraCotta-600 via-warmOchre-500 to-forestGreen-600 rounded-[2.5rem] shadow-[0_25px_80px_rgba(0,0,0,0.25)] p-12 md:p-20 text-white text-center relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-32 -translate-y-32"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-48 translate-y-48"></div>
-
-        <div className="relative z-10">
-          <div className="text-8xl mb-8">🚀</div>
-          <h2 className="text-5xl md:text-7xl font-serif font-bold mb-8 leading-tight">
+      <section className="bg-gradient-to-br from-sage-600 via-sage-700 to-softTerracotta-600 rounded-3xl shadow-soft-xl p-16 md:p-24 text-white text-center relative overflow-hidden">
+        <div className="relative z-10 max-w-3xl mx-auto space-y-8">
+          <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
             Ready to Share Your Wisdom?
           </h2>
-          <p className="text-2xl md:text-3xl mb-12 max-w-3xl mx-auto opacity-95 leading-relaxed font-light">
+          <p className="text-xl md:text-2xl opacity-95 leading-relaxed font-normal">
             Join our community of honored elders sharing their life experiences, expertise, and creativity while earning income.
           </p>
           <Link href="/register">
-            <Button variant="secondary" size="large" className="bg-white text-forestGreen-800 hover:bg-cream-100 text-2xl px-14 py-7 shadow-2xl font-semibold">
+            <Button variant="secondary" size="large" className="bg-white text-sage-800 hover:bg-warmBeige-50 text-lg px-12 py-4 shadow-soft-lg font-semibold">
               Register as an Elder
             </Button>
           </Link>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-xl opacity-95">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-base opacity-90">
             <span className="flex items-center gap-2">
-              <span className="text-2xl">✓</span> Free to join
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              Free to join
             </span>
-            <span className="hidden sm:inline text-white/50">•</span>
+            <span className="hidden sm:inline text-white/40">•</span>
             <span className="flex items-center gap-2">
-              <span className="text-2xl">✓</span> Start earning immediately
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              Start earning immediately
             </span>
-            <span className="hidden sm:inline text-white/50">•</span>
+            <span className="hidden sm:inline text-white/40">•</span>
             <span className="flex items-center gap-2">
-              <span className="text-2xl">✓</span> Share on your terms
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              Share on your terms
             </span>
           </div>
         </div>
