@@ -1,0 +1,87 @@
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- Single color version - works at any size -->
+
+  <!-- Circular frame -->
+  <circle cx="120" cy="120" r="115" fill="none" stroke="#6B8F7F" stroke-width="2" opacity="0.3"/>
+
+  <!-- Root system -->
+  <g id="roots" stroke="#6B8F7F" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Main central root -->
+    <path d="M 120 135 L 120 190" stroke-width="6"/>
+
+    <!-- Primary roots -->
+    <path d="M 120 145 Q 95 160 75 185" stroke-width="5"/>
+    <path d="M 120 145 Q 145 160 165 185" stroke-width="5"/>
+    <path d="M 120 150 Q 110 170 90 195" stroke-width="4"/>
+    <path d="M 120 150 Q 130 170 150 195" stroke-width="4"/>
+
+    <!-- Secondary roots -->
+    <path d="M 100 165 Q 70 175 50 195" stroke-width="3" opacity="0.9"/>
+    <path d="M 140 165 Q 170 175 190 195" stroke-width="3" opacity="0.9"/>
+    <path d="M 105 155 Q 85 165 65 180" stroke-width="2.5" opacity="0.8"/>
+    <path d="M 135 155 Q 155 165 175 180" stroke-width="2.5" opacity="0.8"/>
+
+    <!-- Tertiary roots -->
+    <path d="M 85 180 Q 60 190 45 205" stroke-width="2" opacity="0.6"/>
+    <path d="M 155 180 Q 180 190 195 205" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- Main trunk -->
+  <rect x="110" y="100" width="20" height="40" fill="#6B8F7F" rx="2"/>
+
+  <!-- Branch system -->
+  <g id="branches" stroke="#6B8F7F" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Main central branch -->
+    <path d="M 120 100 L 120 50" stroke-width="6"/>
+
+    <!-- Primary branches -->
+    <path d="M 120 95 Q 95 80 75 55" stroke-width="5"/>
+    <path d="M 120 95 Q 145 80 165 55" stroke-width="5"/>
+    <path d="M 120 90 Q 110 70 90 45" stroke-width="4"/>
+    <path d="M 120 90 Q 130 70 150 45" stroke-width="4"/>
+
+    <!-- Secondary branches -->
+    <path d="M 100 75 Q 70 65 50 45" stroke-width="3" opacity="0.9"/>
+    <path d="M 140 75 Q 170 65 190 45" stroke-width="3" opacity="0.9"/>
+    <path d="M 105 85 Q 85 75 65 60" stroke-width="2.5" opacity="0.8"/>
+    <path d="M 135 85 Q 155 75 175 60" stroke-width="2.5" opacity="0.8"/>
+
+    <!-- Tertiary branches -->
+    <path d="M 85 60 Q 60 50 45 35" stroke-width="2" opacity="0.6"/>
+    <path d="M 155 60 Q 180 50 195 35" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- Canopy (simplified circles) -->
+  <g id="canopy" fill="#6B8F7F" opacity="0.8">
+    <circle cx="120" cy="45" r="16"/>
+    <circle cx="110" cy="50" r="13"/>
+    <circle cx="130" cy="50" r="13"/>
+    <circle cx="75" cy="55" r="15"/>
+    <circle cx="65" cy="65" r="12"/>
+    <circle cx="85" cy="65" r="11"/>
+    <circle cx="50" cy="50" r="13"/>
+    <circle cx="165" cy="55" r="15"/>
+    <circle cx="175" cy="65" r="12"/>
+    <circle cx="155" cy="65" r="11"/>
+    <circle cx="190" cy="50" r="13"/>
+    <circle cx="45" cy="40" r="10" opacity="0.9"/>
+    <circle cx="195" cy="40" r="10" opacity="0.9"/>
+    <circle cx="90" cy="48" r="11"/>
+    <circle cx="150" cy="48" r="11"/>
+  </g>
+
+  <!-- Root ground -->
+  <g id="root-earth" fill="#6B8F7F" opacity="0.6">
+    <circle cx="120" cy="195" r="14"/>
+    <circle cx="110" cy="190" r="11"/>
+    <circle cx="130" cy="190" r="11"/>
+    <circle cx="75" cy="185" r="13"/>
+    <circle cx="65" cy="180" r="10"/>
+    <circle cx="50" cy="195" r="11"/>
+    <circle cx="165" cy="185" r="13"/>
+    <circle cx="175" cy="180" r="10"/>
+    <circle cx="190" cy="195" r="11"/>
+    <circle cx="45" cy="205" r="9" opacity="0.8"/>
+    <circle cx="195" cy="205" r="9" opacity="0.8"/>
+  </g>
+</svg>

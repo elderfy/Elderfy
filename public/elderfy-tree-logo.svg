@@ -1,0 +1,120 @@
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients for depth -->
+    <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#A0522D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="canopyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A7C59;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3D5A46;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="rootGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#B8860B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9B7310;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circular frame (subtle) -->
+  <circle cx="120" cy="120" r="115" fill="none" stroke="#D4C3AB" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Root system (mirroring branches above) -->
+  <g id="roots" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Main central root -->
+    <path d="M 120 135 L 120 190" stroke="url(#rootGradient)" stroke-width="6" fill="none"/>
+
+    <!-- Primary roots (3 major directions) -->
+    <path d="M 120 145 Q 95 160 75 185" stroke="url(#rootGradient)" stroke-width="5" fill="none"/>
+    <path d="M 120 145 Q 145 160 165 185" stroke="url(#rootGradient)" stroke-width="5" fill="none"/>
+    <path d="M 120 150 Q 110 170 90 195" stroke="url(#rootGradient)" stroke-width="4" fill="none"/>
+    <path d="M 120 150 Q 130 170 150 195" stroke="url(#rootGradient)" stroke-width="4" fill="none"/>
+
+    <!-- Secondary roots (branching) -->
+    <path d="M 100 165 Q 70 175 50 195" stroke="#B8860B" stroke-width="3" fill="none" opacity="0.9"/>
+    <path d="M 140 165 Q 170 175 190 195" stroke="#B8860B" stroke-width="3" fill="none" opacity="0.9"/>
+    <path d="M 105 155 Q 85 165 65 180" stroke="#B8860B" stroke-width="2.5" fill="none" opacity="0.8"/>
+    <path d="M 135 155 Q 155 165 175 180" stroke="#B8860B" stroke-width="2.5" fill="none" opacity="0.8"/>
+
+    <!-- Tertiary roots (fine detail) -->
+    <path d="M 85 180 Q 60 190 45 205" stroke="#B8860B" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M 155 180 Q 180 190 195 205" stroke="#B8860B" stroke-width="2" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- Main trunk -->
+  <rect x="110" y="100" width="20" height="40" fill="url(#trunkGradient)" rx="2"/>
+
+  <!-- Branch system (mirroring roots below) -->
+  <g id="branches" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Main central branch/trunk extension -->
+    <path d="M 120 100 L 120 50" stroke="url(#trunkGradient)" stroke-width="6" fill="none"/>
+
+    <!-- Primary branches (3 major directions) -->
+    <path d="M 120 95 Q 95 80 75 55" stroke="#8B4513" stroke-width="5" fill="none"/>
+    <path d="M 120 95 Q 145 80 165 55" stroke="#8B4513" stroke-width="5" fill="none"/>
+    <path d="M 120 90 Q 110 70 90 45" stroke="#8B4513" stroke-width="4" fill="none"/>
+    <path d="M 120 90 Q 130 70 150 45" stroke="#8B4513" stroke-width="4" fill="none"/>
+
+    <!-- Secondary branches -->
+    <path d="M 100 75 Q 70 65 50 45" stroke="#8B4513" stroke-width="3" fill="none" opacity="0.9"/>
+    <path d="M 140 75 Q 170 65 190 45" stroke="#8B4513" stroke-width="3" fill="none" opacity="0.9"/>
+    <path d="M 105 85 Q 85 75 65 60" stroke="#8B4513" stroke-width="2.5" fill="none" opacity="0.8"/>
+    <path d="M 135 85 Q 155 75 175 60" stroke="#8B4513" stroke-width="2.5" fill="none" opacity="0.8"/>
+
+    <!-- Tertiary branches (fine detail) -->
+    <path d="M 85 60 Q 60 50 45 35" stroke="#8B4513" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M 155 60 Q 180 50 195 35" stroke="#8B4513" stroke-width="2" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- Canopy/foliage (organic clusters) -->
+  <g id="canopy" opacity="0.85">
+    <!-- Top center cluster -->
+    <circle cx="120" cy="45" r="16" fill="url(#canopyGradient)"/>
+    <circle cx="110" cy="50" r="13" fill="#4A7C59"/>
+    <circle cx="130" cy="50" r="13" fill="#4A7C59"/>
+
+    <!-- Left side clusters -->
+    <circle cx="75" cy="55" r="15" fill="url(#canopyGradient)"/>
+    <circle cx="65" cy="65" r="12" fill="#4A7C59"/>
+    <circle cx="85" cy="65" r="11" fill="#3D5A46"/>
+    <circle cx="50" cy="50" r="13" fill="#4A7C59"/>
+
+    <!-- Right side clusters -->
+    <circle cx="165" cy="55" r="15" fill="url(#canopyGradient)"/>
+    <circle cx="175" cy="65" r="12" fill="#4A7C59"/>
+    <circle cx="155" cy="65" r="11" fill="#3D5A46"/>
+    <circle cx="190" cy="50" r="13" fill="#4A7C59"/>
+
+    <!-- Far left and right -->
+    <circle cx="45" cy="40" r="10" fill="#3D5A46" opacity="0.9"/>
+    <circle cx="195" cy="40" r="10" fill="#3D5A46" opacity="0.9"/>
+
+    <!-- Upper spreading -->
+    <circle cx="90" cy="48" r="11" fill="#4A7C59"/>
+    <circle cx="150" cy="48" r="11" fill="#4A7C59"/>
+  </g>
+
+  <!-- Root ground clusters (mirroring canopy) -->
+  <g id="root-earth" opacity="0.7">
+    <!-- Bottom center clusters -->
+    <circle cx="120" cy="195" r="14" fill="#9B7310"/>
+    <circle cx="110" cy="190" r="11" fill="#B8860B"/>
+    <circle cx="130" cy="190" r="11" fill="#B8860B"/>
+
+    <!-- Left side -->
+    <circle cx="75" cy="185" r="13" fill="#B8860B"/>
+    <circle cx="65" cy="180" r="10" fill="#9B7310"/>
+    <circle cx="50" cy="195" r="11" fill="#B8860B"/>
+
+    <!-- Right side -->
+    <circle cx="165" cy="185" r="13" fill="#B8860B"/>
+    <circle cx="175" cy="180" r="10" fill="#9B7310"/>
+    <circle cx="190" cy="195" r="11" fill="#B8860B"/>
+
+    <!-- Far edges -->
+    <circle cx="45" cy="205" r="9" fill="#9B7310" opacity="0.8"/>
+    <circle cx="195" cy="205" r="9" fill="#9B7310" opacity="0.8"/>
+  </g>
+</svg>

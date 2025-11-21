@@ -1,0 +1,130 @@
+<svg width="200" height="280" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for the tower/trunk -->
+    <linearGradient id="towerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B6F47;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#A0826D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6B5444;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Gradient for branches/canopy -->
+    <linearGradient id="canopyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A7C59;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3D6B4A;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Gradient for light/beacon -->
+    <radialGradient id="lightGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#D4A574;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#C8876A;stop-opacity:0.3" />
+    </radialGradient>
+  </defs>
+
+  <!-- Roots (lighthouse foundation) -->
+  <g id="roots">
+    <!-- Left root system -->
+    <path d="M 85 240 Q 60 250 40 265 Q 30 272 25 278"
+          stroke="#6B5444" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M 80 245 Q 55 255 35 268"
+          stroke="#6B5444" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 88 235 Q 70 242 58 252"
+          stroke="#6B5444" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- Right root system -->
+    <path d="M 115 240 Q 140 250 160 265 Q 170 272 175 278"
+          stroke="#6B5444" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M 120 245 Q 145 255 165 268"
+          stroke="#6B5444" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 112 235 Q 130 242 142 252"
+          stroke="#6B5444" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- Center root -->
+    <path d="M 100 245 L 100 275"
+          stroke="#6B5444" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
+  </g>
+
+  <!-- Foundation/Base (transitional) -->
+  <path d="M 75 220 L 70 240 L 85 240 L 100 235 L 115 240 L 130 240 L 125 220 Z"
+        fill="#8B6F47" opacity="0.8"/>
+
+  <!-- Main trunk/tower -->
+  <rect x="85" y="90" width="30" height="135" fill="url(#towerGradient)" rx="2"/>
+
+  <!-- Tower details (lighthouse windows) -->
+  <g id="windows">
+    <rect x="90" y="110" width="20" height="15" fill="#D4A574" opacity="0.6" rx="1"/>
+    <rect x="90" y="140" width="20" height="15" fill="#D4A574" opacity="0.6" rx="1"/>
+    <rect x="90" y="170" width="20" height="15" fill="#D4A574" opacity="0.6" rx="1"/>
+    <rect x="90" y="200" width="20" height="15" fill="#D4A574" opacity="0.6" rx="1"/>
+  </g>
+
+  <!-- Transition zone (where lighthouse meets tree) -->
+  <path d="M 85 90 L 75 85 L 70 75 L 85 80 Z" fill="#6B8F7F" opacity="0.7"/>
+  <path d="M 115 90 L 125 85 L 130 75 L 115 80 Z" fill="#6B8F7F" opacity="0.7"/>
+
+  <!-- Branches and canopy (organic transition) -->
+  <g id="branches">
+    <!-- Left branches -->
+    <path d="M 85 85 Q 60 75 45 65 Q 35 58 30 52"
+          stroke="#4A7C59" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M 82 75 Q 65 68 50 60"
+          stroke="#4A7C59" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+    <path d="M 88 65 Q 75 58 65 52"
+          stroke="#4A7C59" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+    <!-- Right branches -->
+    <path d="M 115 85 Q 140 75 155 65 Q 165 58 170 52"
+          stroke="#4A7C59" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M 118 75 Q 135 68 150 60"
+          stroke="#4A7C59" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+    <path d="M 112 65 Q 125 58 135 52"
+          stroke="#4A7C59" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+    <!-- Upper branches -->
+    <path d="M 92 60 Q 85 45 82 30"
+          stroke="#4A7C59" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M 108 60 Q 115 45 118 30"
+          stroke="#4A7C59" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+    <!-- Central upward branches -->
+    <path d="M 100 55 Q 95 35 92 20"
+          stroke="#4A7C59" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 100 55 Q 105 35 108 20"
+          stroke="#4A7C59" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- Foliage/Canopy (abstract clusters) -->
+  <g id="foliage">
+    <!-- Left canopy -->
+    <circle cx="30" cy="52" r="18" fill="url(#canopyGradient)" opacity="0.8"/>
+    <circle cx="50" cy="48" r="16" fill="url(#canopyGradient)" opacity="0.75"/>
+    <circle cx="65" cy="45" r="14" fill="url(#canopyGradient)" opacity="0.7"/>
+
+    <!-- Right canopy -->
+    <circle cx="170" cy="52" r="18" fill="url(#canopyGradient)" opacity="0.8"/>
+    <circle cx="150" cy="48" r="16" fill="url(#canopyGradient)" opacity="0.75"/>
+    <circle cx="135" cy="45" r="14" fill="url(#canopyGradient)" opacity="0.7"/>
+
+    <!-- Top canopy -->
+    <circle cx="92" cy="20" r="14" fill="url(#canopyGradient)" opacity="0.75"/>
+    <circle cx="108" cy="20" r="14" fill="url(#canopyGradient)" opacity="0.75"/>
+    <circle cx="100" cy="12" r="12" fill="url(#canopyGradient)" opacity="0.8"/>
+  </g>
+
+  <!-- Lighthouse beacon/light (at the top, radiating) -->
+  <g id="beacon">
+    <!-- Light house top structure -->
+    <rect x="88" y="52" width="24" height="8" fill="#C8876A" rx="1"/>
+    <polygon points="88,52 100,42 112,52" fill="#D4A574"/>
+
+    <!-- Radiating light -->
+    <circle cx="100" cy="45" r="25" fill="url(#lightGradient)" opacity="0.3"/>
+    <circle cx="100" cy="45" r="15" fill="url(#lightGradient)" opacity="0.4"/>
+
+    <!-- Light rays -->
+    <path d="M 100 45 L 85 20" stroke="#D4A574" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+    <path d="M 100 45 L 115 20" stroke="#D4A574" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+    <path d="M 100 45 L 70 35" stroke="#D4A574" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+    <path d="M 100 45 L 130 35" stroke="#D4A574" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+  </g>
+</svg>
